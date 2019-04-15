@@ -58,4 +58,14 @@ class Triangle:public Shape{
         return (width * height);
     }
 
+    //加了const的引用(常量引用),既避免了拷贝，有避免了函数对值的修改
+    // void changeWidth(const Triangle &t){
+    //     t.width = 30;   //会报错。修改不了
+    // }
+
+    //加static修饰的函数,无法修改成员变量
+    //  static void changeWidth(){
+    //     width = 20;
+    // }
+
 };
