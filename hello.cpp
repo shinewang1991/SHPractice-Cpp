@@ -1,5 +1,8 @@
 #include <iostream>
 #include "Person.cpp"
+#include "Shape.cpp"
+#include "Print.cpp"
+#include "Adder.cpp"
 using namespace std;
 
 class Box{
@@ -182,8 +185,71 @@ void demo9(){
 
 }
 
+void demo10(){
+    Rectangle r1;
+    r1.setWidth(10);
+    r1.setHeight(20);
+    cout << "r1体积为:" <<r1.getArea() <<endl;
+}
+
+//多继承
+void demo11(){
+    Rectangle r1;
+    r1.setWidth(10);
+    r1.setHeight(20);
+    double area = r1.getArea();
+    double cost = r1.getCost(area);
+    cout <<"r1的花费是:" <<cost<<endl;
+}
+
+//函数重载
+void demo12(){
+    Print p1;
+    p1.print(12);
+    p1.print(2.34);
+    p1.print("小强你好");
+}
+
+//运算符重载
+void demo13(){
+    Rectangle r1,r2,r3;
+    r1.setWidth(10);
+    r1.setHeight(10);
+    r2.setWidth(20);
+    r2.setHeight(20);
+    r3 = r1+r2;
+    cout <<"r3的体积为:" << r3.getArea() <<endl;
+
+}
+
+//多态
+void demo14(){
+    Shape *s1;
+    Rectangle r1;
+    Triangle t1;
+    r1.setWidth(10);
+    r1.setHeight(10);
+
+    t1.setWidth(20);
+    t1.setHeight(20);
+
+    s1 = &r1;
+    cout <<s1->area()<<endl;
+    s1 = &t1;
+    cout <<s1->area()<<endl;
+}
+
+//抽象
+void demo15(){
+    Adder adder;
+    adder.add(10);
+    adder.add(50);
+    adder.add(20);
+    cout<< adder.getTotal()<<endl;
+}
+
 int main()
 {
-   demo9();
+   demo15();
    return 0;
 }
